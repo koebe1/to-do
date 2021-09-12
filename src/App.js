@@ -1,23 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+function List(props) {
+  const list = props.list;
+
+  return (
+    <ul>
+      {list.map((listItem, index) => {
+        return (
+          <li key={index} className="listItem">
+            {listItem}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      toDoList: [],
+      inputValue: ""
+    };
+  }
+
+  handleInputChange = event => {
+    this.setState({
+      inputValue: event.target.value
+    });
+  };
+
+  handleAdding = () => {
+    this.setState({
+      toDoList: [...this.state.toDoList, this.state.inputValue],
+      inputValue: ""
+    });
+  };
+  render() {
+    const { inputValue, toDoList } = this.state;
+    return (
+      <div className="to-do-container">
+        <input
+          value={inputValue}
+          onChange={this.handleInputChange}
+          type="text"
+        />
+        <button
+          onClick={this.handleAdding}
+          disabled={inputValue === "" ? true : false}
+        >
+          Add
+        </button>
+        <List list={toDoList} />
+      </div>
+    );
+  }
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToDo />
     </div>
   );
 }
