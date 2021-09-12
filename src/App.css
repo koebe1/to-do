@@ -16,3 +16,21 @@ body,
   justify-content: center;
   align-items: center;
 }
+
+/* list itens */
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin-top: 10px;
+}
+.delete {
+  color: #ffffff;
+  background: rgba(245, 67, 54, 0.8);
+  font-size: 16px;
+  border: none;
+  margin-left: 10px;
+  border-radius: 9px;
+  padding: 3px 12px;
+}
