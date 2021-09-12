@@ -5,11 +5,20 @@ export default class ToDo extends React.Component {
   constructor(props) {
     super(props);
 
+    // retrieve to do list from local storage if ther is a value 
+    // -> empty string otherwise
     this.state = {
-      toDoList: [],
+      toDoList: localStorage.getItem("toDoList")
+        ? localStorage.getItem("toDoList").split(",")
+        : [],
+
       inputValue: ""
     };
     this.input = React.createRef();
+  }
+  //   save to do list in local storage
+  componentDidUpdate() {
+    localStorage.setItem("toDoList", this.state.toDoList);
   }
 
   focusInput = () => {
@@ -34,6 +43,7 @@ export default class ToDo extends React.Component {
         toDoList: [...this.state.toDoList, this.state.inputValue],
         inputValue: ""
       });
+      //   add to local storage after toDoList was updated
     }
     this.focusInput();
   };
@@ -48,6 +58,8 @@ export default class ToDo extends React.Component {
   };
 
   render() {
+    const saved = localStorage.getItem("toDoList");
+    console.log(saved, " is a ", typeof saved);
     const { inputValue, toDoList } = this.state;
     return (
       <div className="to-do-container">
