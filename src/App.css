@@ -56,7 +56,7 @@ ul {
 .list-item {
   display: flex;
   justify-content: space-between;
-  width: 100px;
+
   margin-bottom: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.03), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
   border-radius: 14px;
@@ -64,10 +64,8 @@ ul {
 }
 .delete {
   color: #ffffff;
-  background: rgba(245, 67, 54, 0.8);
-  font-size: 16px;
+  background: rgba(245, 67, 54, 0.7);
+  font-size: 12px;
   border: none;
-  margin-left: 10px;
-  border-radius: 9px;
-  padding: 3px 12px;
+  margin-left: 0px;
 }
