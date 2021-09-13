@@ -5,7 +5,7 @@ export default class ToDo extends React.Component {
   constructor(props) {
     super(props);
 
-    // retrieve to do list from local storage if ther is a value 
+    // retrieve to do list from local storage if ther is a value
     // -> empty string otherwise
     this.state = {
       toDoList: localStorage.getItem("toDoList")
@@ -58,26 +58,32 @@ export default class ToDo extends React.Component {
   };
 
   render() {
-    const saved = localStorage.getItem("toDoList");
-    console.log(saved, " is a ", typeof saved);
+    // const saved = localStorage.getItem("toDoList");
     const { inputValue, toDoList } = this.state;
     return (
       <div className="to-do-container">
-        <input
-          autoFocus
-          value={inputValue}
-          onChange={this.handleInputChange}
-          onKeyPress={this.handleKeypress}
-          type="text"
-          ref={this.input}
-        />
-        <button
-          onClick={this.handleAdding}
-          disabled={inputValue === "" ? true : false}
-        >
-          Add
-        </button>
-        <List handleDelete={this.handleDelete} list={toDoList} />
+        <div className="input-container">
+          <h1>To Do List</h1>
+          <div>
+            <input
+            className="input"
+              autoFocus
+              value={inputValue}
+              onChange={this.handleInputChange}
+              onKeyPress={this.handleKeypress}
+              type="text"
+              ref={this.input}
+            />
+            <button
+              className="btn-add"
+              onClick={this.handleAdding}
+              disabled={inputValue === "" ? true : false}
+            >
+              Add
+            </button>
+          </div>
+          <List handleDelete={this.handleDelete} list={toDoList} />
+        </div>
       </div>
     );
   }

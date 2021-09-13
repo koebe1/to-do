@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&display=swap");
+
 html,
 body,
 #root,
@@ -7,23 +9,58 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
 }
 
 .to-do-container {
   width: 100%;
   height: 100%;
   display: flex;
+
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin: 10vh 0 0 0;
 }
 
-/* list itens */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+h1 {
+  margin-top: 10px;
+}
+.input {
+  border: 0.5px solid grey;
+  border-radius: 12px;
+}
+button {
+  color: black;
+  background: #ffffff;
+  margin-left: 10px;
+  border: 0.5px solid grey;
+  border-radius: 14px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+button:disabled {
+  color: lightgrey;
+}
 
+ul {
+  padding: 0;
+}
 .list-item {
   display: flex;
   justify-content: space-between;
   width: 100px;
-  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.03), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
+  border-radius: 14px;
+  padding: 10px;
 }
 .delete {
   color: #ffffff;
